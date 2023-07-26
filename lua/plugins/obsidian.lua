@@ -1,5 +1,9 @@
 -- https://github.com/epwalsh/obsidian.nvim
-local vault = vim.fn.expand "~" .. "/Sandbox/notebox"
+local vault = vim.fn.expand "~" .. "/Workspace/wiki"
+local separator = "-"
+local format = "%d" .. separator .. "%m" .. separator .. "%Y" -- %d-%m-%Y
+-- define se o titulo de uma nota deve ser prefixida com a data 
+local prefix = false
 
 
 local create_prefix_from_timestamp = function(format)
@@ -8,19 +12,35 @@ local create_prefix_from_timestamp = function(format)
 end
 
 
-local create_note_id = function(title)
-    local separator = "-"
-    local format = "%d" .. separator .. "%m" .. separator .. "%Y" -- %d-%m-%Y
-    local prefix = create_prefix_from_timestamp(format)
-    local suffix = ""
-    if title ~= nil then
-        title = title:gsub(" ", separator):gsub("[^A-Za-z0-9]", "_"):lower()
-        else
-        for _ = 1,4 do
-            title = suffix .. string.char(math.random(65, 90))
-        end
+local create_default_title = function()
+    local title = ""
+    for _ = 1,5 do
+        title = title .. string.char(math.random(65, 90))
     end
-    return prefix .. separator .. title
+    return title
+end
+
+
+local sanitize_user_title = function(title)
+    title = title:gsub(" ", separator):gsub("[^A-Za-z0-9]", "_"):lower()
+    return title
+end
+
+
+local create_note_id = function(title)
+
+    local date = create_prefix_from_timestamp(format)
+
+    if title ~= nil then
+        title = sanitize_user_title(title)
+    else
+        title = create_default_title()
+    end
+
+    if prefix then
+        return date .. separator .. title
+    end
+    return title .. separator .. date
 end
 
 
