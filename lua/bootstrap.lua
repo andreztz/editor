@@ -29,7 +29,7 @@ local load_modules = function(opts)
             colorscheme = { "tokyonight", "gruvbox" },
         },
         checker = {
-            enabled = true, -- automatically check for plugin updates
+            enabled = false, -- automatically check for plugin updates
         },
         performance = {
             rtp = {
