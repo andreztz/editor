@@ -51,6 +51,8 @@ return {
     event = { "BufEnter " .. vault },
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "preservim/vim-markdown",
+        "godlygeek/tabular",
     },
     opts = {
         dir = vault,
