@@ -16,13 +16,13 @@ return {
         { 'hrsh7th/nvim-cmp' },                  -- Required
         { 'hrsh7th/cmp-nvim-lsp' },              -- Required
         { 'L3MON4D3/LuaSnip' },                  -- Required
-        {"jose-elias-alvarez/null-ls.nvim"},
+        { "jose-elias-alvarez/null-ls.nvim" },
     },
     config = function()
         local lsp = require('lsp-zero').preset("recommended")
 
         lsp.ensure_installed({
-            'rust_analyzer', 'tsserver', 'lua_ls', 'gopls'
+            'rust_analyzer', 'tsserver', 'lua_ls', 'gopls', 'pyright'
         })
 
         lsp.on_attach(function(client, bufnr)
@@ -120,8 +120,18 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             mapping = {
+                -- `Enter` key to confirm completion
+                ['<CR>'] = cmp.mapping.confirm({ select = false }),
                 ['<Tab>'] = cmp_action.luasnip_supertab(),
                 ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+
+                -- Ctrl+Space to trigger completion menu
+                ['<C-Space>'] = cmp.mapping.complete(),
+
+                -- Navigate between snippet placeholder
+                ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+                ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
             }
         })
 
