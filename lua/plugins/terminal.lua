@@ -1,5 +1,4 @@
--- TODO:  
--- Fix: mudar de janela usando teclas A-Left, A-Right, A-Up e A-Down
+-- https://github.com/akinsho/toggleterm.nvim
 return {
     {
         -- https://github.com/akinsho/toggleterm.nvim
@@ -7,31 +6,46 @@ return {
         version = "*",
         opts = {
             --[[ things you want to change go here]]
-            open_mapping = [[<A-\>]],
-            direction = "float",
+            open_mapping = [[<C-\>]],
+            direction = "horizontal",
         },
         keys = {
             {
-                "<A-Left>", 
-                "<C-w>h", 
-                mode={"t"}, desc="Go to left window"
+                "<esc>",
+                "<C-\\><C-n>",
+                mode = { "t" },
+                desc = ""
+            },
+            {
+                "<A-\\>",
+                "<C-\\><C-n>",
+                mode = { "t" },
+                desc = ""
+            },
+            {
+                "<A-Left>",
+                "<C-w>h",
+                mode = { "t" },
+                desc = "Go to left window"
             },
             {
                 "<A-Down>",
                 "<C-w>j",
-                mode={"t"}, desc="Go to lower window"
+                mode = { "t" },
+                desc = "Go to lower window"
             },
             {
                 "<A-UP>",
-                "<C-w>k", 
-                mode={"t"}, desc="Go to upper window"
+                "<C-w>k",
+                mode = { "t" },
+                desc = "Go to upper window"
             },
             {
-                "<A-Right>",
+                "<A-Right>",
                 "<C-w>l",
-                mode={"t"}, desc="Go to right window"
+                mode = { "t" },
+                desc = "Go to right window"
             },
         },
     },
 }
-
