@@ -8,3 +8,7 @@ vim.cmd [[
 vim.cmd [[
     au FocusGained,BufEnter * :checktime
 ]]
+
+vim.cmd [[
+    command! Pytest :!hatch run test -vv -s
+]]

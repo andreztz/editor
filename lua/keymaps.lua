@@ -46,3 +46,6 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- Mapeie a tecla <F5> para executar o comando Pytest
+vim.api.nvim_set_keymap('n', '<F5>', ':Pytest<CR>', { noremap = true, silent = true })
