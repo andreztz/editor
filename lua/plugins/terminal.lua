@@ -5,8 +5,7 @@ return {
         "akinsho/toggleterm.nvim",
         version = "*",
         opts = {
-            --[[ things you want to change go here]]
-            open_mapping = [[<C-\>]],
+            open_mapping = [[<C-_>]],
             direction = "horizontal",
         },
         keys = {
