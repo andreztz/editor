@@ -26,6 +26,7 @@ return {
         vim.cmd([[Neotree close]])
     end,
     init = function()
+        -- Abre Neotree na inicialização no vim
         require("neo-tree")
     end,
 }

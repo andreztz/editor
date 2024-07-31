@@ -6,7 +6,7 @@ return {
             "<A-\\>",
             "<cmd>lua require('maximizer').toggle()<cr>",
             mode = { "n" },
-            desc = ""
+            desc = "",
         },
-    }
+    },
 }

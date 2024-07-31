@@ -21,3 +21,10 @@ opt.shiftwidth = 4
 opt.smartindent = true
 -- Número de espaços para cada tabulação
 opt.tabstop = 4
+
+-- vim.filetype.add({
+-- 	extension = {
+-- 		yml = "yaml.ansible",
+-- 	},
+-- })
+opt.colorcolumn = "79" -- falha quando int, necessario str

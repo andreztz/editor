@@ -13,37 +13,37 @@ return {
                 "<esc>",
                 "<C-\\><C-n>",
                 mode = { "t" },
-                desc = ""
+                desc = "",
             },
             {
                 "<A-\\>",
                 "<C-\\><C-n>",
                 mode = { "t" },
-                desc = ""
+                desc = "",
             },
             {
                 "<A-Left>",
                 "<C-w>h",
                 mode = { "t" },
-                desc = "Go to left window"
+                desc = "Go to left window",
             },
             {
                 "<A-Down>",
                 "<C-w>j",
                 mode = { "t" },
-                desc = "Go to lower window"
+                desc = "Go to lower window",
             },
             {
                 "<A-UP>",
                 "<C-w>k",
                 mode = { "t" },
-                desc = "Go to upper window"
+                desc = "Go to upper window",
             },
             {
                 "<A-Right>",
                 "<C-w>l",
                 mode = { "t" },
-                desc = "Go to right window"
+                desc = "Go to right window",
             },
         },
     },

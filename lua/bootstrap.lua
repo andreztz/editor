@@ -49,7 +49,6 @@ local load_modules = function(opts)
     })
 end
 
-
 local start = function(leader, theme)
     vim.g.mapleader = leader
     vim.g.maplocalleader = leader
@@ -65,5 +64,5 @@ local start = function(leader, theme)
 end
 
 return {
-    start = start
+    start = start,
 }

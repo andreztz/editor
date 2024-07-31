@@ -4,26 +4,25 @@ return {
         cmd = { "TroubleToggle", "Trouble" },
         opts = { use_diagnostic_signs = true },
         keys = {
-            { 
+            {
                 "<leader>xx",
-                "<cmd>TroubleToggle document_diagnostics<cr>", 
-                desc = "Document Diagnostics (Trouble)" 
+                "<cmd>TroubleToggle document_diagnostics<cr>",
+                desc = "Document Diagnostics (Trouble)",
             },
-            { 
+            {
                 "<leader>xX",
                 "<cmd>TroubleToggle workspace_diagnostics<cr>",
-                desc = "Workspace Diagnostics (Trouble)"
-
+                desc = "Workspace Diagnostics (Trouble)",
             },
             {
                 "<leader>xL",
                 "<cmd>TroubleToggle loclist<cr>",
-                desc = "Location List (Trouble)"
+                desc = "Location List (Trouble)",
             },
             {
                 "<leader>xQ",
                 "<cmd>TroubleToggle quickfix<cr>",
-                desc = "Quickfix List (Trouble)"
+                desc = "Quickfix List (Trouble)",
             },
             -- TODO::
             --  - Fix [q e ]q
@@ -32,8 +31,8 @@ return {
             --     "[q",
             --     function()
             --         if require("trouble").is_open() then
-            --             require("trouble").previous({ 
-            --                 skip_groups = true, jump = true 
+            --             require("trouble").previous({
+            --                 skip_groups = true, jump = true
             --             })
             --         else
             --             vim.cmd.cprev()
