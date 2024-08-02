@@ -30,3 +30,20 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.formatoptions:append("t")
     end,
 })
+
+-- Define o comando`:NewNote`. Ex.:
+-- `:NewNote dir=drafts title=nova_nota`
+vim.api.nvim_create_user_command("NewNote", function(opts)
+    -- Parse de argumentos a partir de opts.args
+    local args = {}
+    for _, pair in ipairs(vim.split(opts.args, "%s+")) do
+        local key, value = unpack(vim.split(pair, "="))
+        args[key] = value
+    end
+    -- Define valores padrão para argumentos quando não
+    -- são fornecidos com o comando
+    local dir = args.dir or "drafts"
+    local title = args.title or "Untitled"
+    -- Chama a função zk.new para criar uma nova nota
+    require("zk").new({ dir = dir, title = title })
+end, { nargs = "*" })
