@@ -32,7 +32,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Define o comando`:NewNote`. Ex.:
--- `:NewNote dir=drafts title=nova_nota`
+-- `:NewNote dir=drafts title=nova_nota, ...`
+-- veja os paramêtros permitidos em:
+-- https://github.com/zk-org/zk/blob/main/docs/editors-integration.md#zknew
 vim.api.nvim_create_user_command("NewNote", function(opts)
     -- Parse de argumentos a partir de opts.args
     local args = {}
@@ -40,10 +42,17 @@ vim.api.nvim_create_user_command("NewNote", function(opts)
         local key, value = unpack(vim.split(pair, "="))
         args[key] = value
     end
-    -- Define valores padrão para argumentos quando não
-    -- são fornecidos com o comando
-    local dir = args.dir or "drafts"
-    local title = args.title or "Untitled"
+    -- Define paramêtros aceitos pela função zk.new
+    local params = {
+        dir = args.dir or "drafts",
+        title = args.title or "Untitled",
+        group = args.group or nil,
+        content = args.content or nil,
+        template = args.template or nil,
+        extra = args.extra or nil,
+        date = args.date or nil,
+        dryRun = args.dryRun == "true",
+    }
     -- Chama a função zk.new para criar uma nova nota
-    require("zk").new({ dir = dir, title = title })
+    require("zk").new(params)
 end, { nargs = "*" })
