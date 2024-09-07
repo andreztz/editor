@@ -11,6 +11,9 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- remapeia ';' para `.` - busca do próximo padrão
+vim.api.nvim_set_keymap("n", ".", ";", { noremap = true, silent = true })
+
 local Terminal = require("toggleterm.terminal").Terminal
 local ipython_term = Terminal:new({ cmd = "ipython", hidden = true })
 -- Terminal - Floating mode
