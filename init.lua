@@ -1,6 +1,4 @@
--- TODO: formatador de codigo
-
 local LEADER = ";"
-local THEME = ""
+local THEME = "cyberpunk-neon"
 local bootstrap = require("bootstrap")
 bootstrap.start(LEADER, THEME)
