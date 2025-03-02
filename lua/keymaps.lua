@@ -11,7 +11,7 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- remapeia ';' para `.` - busca do próximo padrão
+-- Busca de caractere em linha - remapeia ';' para `.`
 vim.api.nvim_set_keymap("n", ".", ";", { noremap = true, silent = true })
 
 -- Window - Movimentação entre janelas
