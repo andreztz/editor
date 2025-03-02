@@ -32,3 +32,21 @@ vim.api.nvim_set_keymap(
     ":Pytest<CR>",
     { noremap = true, silent = true }
 )
+
+-- Terminal
+local job_id = 0
+vim.keymap.set("n", "<leader>tt", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 10)
+    job_id = vim.bo.channel
+end)
+
+vim.keymap.set("n", "<leader>tr", function()
+    -- Exemplo de combinações de teclas para executar comando no terminal
+    -- "<space>build", "<space>run", "<space>test"...
+    vim.fn.chansend(job_id, { "running command.... 'hi'\r\n" })
+    -- make
+    -- go build, go test ./asdfasdf
+end)
