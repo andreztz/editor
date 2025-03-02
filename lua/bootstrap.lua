@@ -1,3 +1,11 @@
+local set_theme = function(theme)
+    if theme and theme ~= "" then
+        vim.cmd("colorscheme " .. theme)
+    else
+        vim.cmd("colorscheme tokyonight")
+    end
+end
+
 local load_modules = function(opts)
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -52,13 +60,11 @@ end
 local start = function(leader, theme)
     vim.g.mapleader = leader
     vim.g.maplocalleader = leader
-
-    -- "autocmds" deve ser carregado antes de "lazy.nvim"
+    -- Inicializa tema
+    set_theme(theme)
+    -- WARNING: "autocmds" deve ser carregado antes de load_modules.
     require("autocmds")
     load_modules()
-    -- Inicializa tema padrão
-    require("tokyonight").load()
-    -- TODO: Criar função para inicializar options e keymaps
     require("options")
     require("keymaps")
 end
