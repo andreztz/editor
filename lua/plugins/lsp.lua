@@ -7,7 +7,6 @@ local _ensure_installed = {
     "yamlls", -- yaml,yaml.github yaml.gitlab,yaml.docker-compose
     "ansiblels",
     "dockerls",
-    "fish_lsp",
     "htmx",
     "zk",
     "markdown_oxide",
