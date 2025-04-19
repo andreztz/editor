@@ -20,7 +20,8 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
     hi Comment ctermbg=NONE ctermfg=25 cterm=bold guibg=NONE guifg=#005faf gui=bold
     hi Constant ctermbg=NONE ctermfg=208 cterm=NONE guibg=NONE guifg=#f57800 gui=NONE
     hi Cursor ctermbg=NONE ctermfg=201 cterm=NONE guibg=NONE guifg=#ea00d9 gui=NONE
-    hi CursorLine ctermbg=201 ctermfg=233 cterm=NONE guibg=#ea00d9 guifg=#000b1e gui=NONE
+
+    hi CursorLine ctermbg=201 ctermfg=233 cterm=None guibg=#5b35ba guifg=#ffff00 gui=bold
     hi CursorLineNr ctermbg=201 ctermfg=233 cterm=NONE guibg=#ea00d9 guifg=#000b1e gui=NONE
     hi DiffAdd ctermbg=NONE ctermfg=10 cterm=NONE guibg=NONE guifg=#00ff00 gui=NONE
     hi DiffAdded ctermbg=NONE ctermfg=10 cterm=NONE guibg=NONE guifg=#00ff00 gui=NONE
