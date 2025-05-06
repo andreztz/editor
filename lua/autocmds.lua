@@ -13,7 +13,7 @@ vim.cmd([[
 -- ]])
 --
 vim.cmd([[
-    command! Pytest :TermExec cmd='hatch run test -vv -s' 
+    command! Pytest :TermExec cmd='pytest -vv -s'
 ]])
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
