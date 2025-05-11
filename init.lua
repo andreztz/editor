@@ -1,4 +1,5 @@
-local LEADER = ";"
-local THEME = "cyberpunk-neon"
+local leader = ";"
+local theme = "cyberpunk-neon"
+local transparency = true
 local bootstrap = require("bootstrap")
-bootstrap.start(LEADER, THEME)
+bootstrap.start(leader, theme, transparency)
