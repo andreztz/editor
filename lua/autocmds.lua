@@ -67,3 +67,19 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.cmd.startinsert()
     end,
 })
+
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.yml,*.yaml",
+    callback = function()
+        local lines = vim.api.nvim_buf_get_lines(0, 0, 20, false)
+        for _, line in ipairs(lines) do
+            if line:match("^%s*hosts:") or line:match("^%s*tasks:") or line:match("^%s*roles:") then
+                vim.bo.filetype = "yaml.ansible"
+                return
+            end
+        end
+        -- fallback: se não detectou palavras-chave, mantém como yaml
+        vim.bo.filetype = "yaml"
+    end,
+})
