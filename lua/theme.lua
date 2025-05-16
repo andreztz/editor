@@ -1,9 +1,20 @@
 local set_transparency = function()
-    vim.cmd [[
-        hi Normal guibg=NONE ctermbg=NONE
-        hi NormalNC guibg=NONE ctermbg=NONE
-        hi EndOfBuffer guibg=NONE ctermbg=NONE
-    ]]
+    -- vim.cmd [[
+    --     hi Normal guibg=NONE ctermbg=NONE
+    --     hi NormalNC guibg=NONE ctermbg=NONE
+    --     hi EndOfBuffer guibg=NONE ctermbg=NONE
+    -- ]]
+    local transparent_groups = {
+        "Normal",
+        "NormalNC",
+        "EndOfBuffer",
+        "TabLine",
+        "TabLineFill",
+    }
+
+    for _, group in ipairs(transparent_groups) do
+        vim.cmd("hi " .. group .. " guibg=NONE ctermbg=NONE")
+    end
 end
 
 local set_default_theme = function()
