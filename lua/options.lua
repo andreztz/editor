@@ -23,8 +23,8 @@ opt.smartindent = true
 opt.tabstop = 4
 
 -- vim.filetype.add({
--- 	extension = {
--- 		yml = "yaml.ansible",
--- 	},
+--     extension = {
+--         yml = "yaml.ansible",
+--     },
 -- })
 opt.colorcolumn = "79" -- falha quando int, necessario str
